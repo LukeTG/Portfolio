@@ -1,39 +1,43 @@
 const trailContainer = document.querySelector('.trail-container');
 
-// Performance settings
-const maxTrails = 25;      // Max number of dots alive at once
-const trailLifetime = 350; // ms before a dot fades out
-const spawnDelay = 60;     // ms between spawns
+// Settings
+const maxTrails = 100;
+const trailLifetime = 500;
+const spawnDelay = 1;
+const trailSize = 12;
 
 let trails = [];
 let mouseX = 0;
 let mouseY = 0;
-let lastSpawn = 0;
 
-// Create the permanent hollow circle (cursor ring)
+// Cursor ring
 const cursorRing = document.createElement('div');
 cursorRing.classList.add('cursor-ring');
 document.body.appendChild(cursorRing);
 
+// Mouse position
 document.addEventListener('mousemove', (e) => {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
-
-    cursorRing.style.left = `${mouseX}px`;
-    cursorRing.style.top = `${mouseY}px`;
-
-    const now = Date.now();
-    if (now - lastSpawn > spawnDelay) {
-        spawnTrail(mouseX, mouseY);
-        lastSpawn = now;
-    }
+    mouseX = e.pageX;
+    mouseY = e.pageY;
 });
 
-function spawnTrail(x, y) {
+// Smooth cursor ring movement
+let ringX = 0, ringY = 0;
+function moveRing() {
+    ringX += (mouseX - ringX) * 0.2;
+    ringY += (mouseY - ringY) * 0.2;
+    cursorRing.style.left = `${ringX}px`;
+    cursorRing.style.top = `${ringY}px`;
+    requestAnimationFrame(moveRing);
+}
+moveRing();
+
+// Create a trail dot
+function createTrail() {
     const trail = document.createElement('div');
     trail.classList.add('trail');
-    trail.style.left = `${x - 6}px`; // center trail
-    trail.style.top = `${y - 6}px`;
+    trail.style.left = `${mouseX - trailSize / 2}px`;
+    trail.style.top = `${mouseY - trailSize / 2}px`;
 
     trailContainer.appendChild(trail);
     trails.push(trail);
@@ -48,3 +52,10 @@ function spawnTrail(x, y) {
         if (oldTrail) oldTrail.remove();
     }
 }
+
+// Trail spawning loop
+function loop() {
+    createTrail();
+    setTimeout(() => requestAnimationFrame(loop), spawnDelay);
+}
+requestAnimationFrame(loop);
