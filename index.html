@@ -1,24 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>My Webpage</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css" />
     <script src="script.js" defer></script>
 </head>
 <body>
-    <div class="center-container">
-        <h1 class="introduction">Introduction</h1>
-        <p class="about" id="about">
-            I am from Carolina Beach, where I grew up with my mom and dad. When I graduate I want to be a composer or software designer of some kind. 
-            I am taking SparkLab at Heide Trask Senior High School where I am also enrolled in Marching/Symphonic Band. 
-            I play trumpet, piano, guitar, ukulele, and am the vocalist for a small band with some friends. 
-            I currently work at Little Caesars, a chain fast food pizza restaurant.
-        </p>
+    <!-- Custom Cursor Ring -->
+    <div class="cursor-ring"></div>
+
+    <!-- Page Header with Switch -->
+    <h3 class="page-switch" id="page-switch">Hero Page</h3>
+    <h4 class="page-switch2 hidden" id="page-switch2">Work</h4>
+
+    <!-- Main Content Section -->
+    <div class="hero_page" id="hero_page">
+        <div class="page-container" id="page_container">
+            <div class="left-container">
+                <h2 class="interest-title">Interests</h2>
+                <ul class="interest">
+                    <li>Anime</li>
+                    <li>Money</li>
+                    <li>Music</li>
+                    <li>Coding</li>
+                    <li>Marching Band</li>
+                    <li>Symphonic Band</li>
+                    <li>Teamwork/Social Projects</li>
+                    <li>Hands-on-building/learning</li>
+                </ul>
+            </div>
+
+            <div class="center-container">
+                <h1 class="introduction">Introduction</h1>
+                <p class="about" id="about">
+                    I am from Carolina Beach, where I grew up with my mom and dad. When I graduate I want to be a composer or software designer of some kind. I am taking SparkLab at Heide Trask Senior High School where I am also enrolled in Marching/Symphonic Band. I play trumpet, piano, guitar, ukulele, and am the vocalist for a small band with some friends. I currently work at Little Caesars, a chain fast food pizza restaurant.
+                </p>
+            </div>
+
+            <div class="right-container">
+                <h3 class="individual">Individual</h3>
+                <img id="fading-image" class="fade" src="Photo/Luke4.JPG" alt="Picture of Luke smiling" />
+            </div>
+        </div>
     </div>
 
-    <!-- Cursor trail container -->
     <div class="trail-container"></div>
 </body>
 </html>
