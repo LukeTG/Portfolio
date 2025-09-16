@@ -1,27 +1,23 @@
 const trailContainer = document.querySelector('.trail-container');
 
-// Settings
 const maxTrails = 100;
 const trailLifetime = 500;
-const spawnDelay = 1;
+const spawnDelay = 16;
 const trailSize = 12;
 
 let trails = [];
 let mouseX = 0;
 let mouseY = 0;
 
-// Cursor ring
 const cursorRing = document.createElement('div');
 cursorRing.classList.add('cursor-ring');
 document.body.appendChild(cursorRing);
 
-// Mouse position
 document.addEventListener('mousemove', (e) => {
     mouseX = e.pageX;
     mouseY = e.pageY;
 });
 
-// Smooth cursor ring movement
 let ringX = 0, ringY = 0;
 function moveRing() {
     ringX += (mouseX - ringX) * 0.2;
@@ -32,7 +28,6 @@ function moveRing() {
 }
 moveRing();
 
-// Create a trail dot
 function createTrail() {
     const trail = document.createElement('div');
     trail.classList.add('trail');
@@ -53,9 +48,52 @@ function createTrail() {
     }
 }
 
-// Trail spawning loop
-function loop() {
-    createTrail();
-    setTimeout(() => requestAnimationFrame(loop), spawnDelay);
+let lastTrailTime = 0;
+function trailLoop() {
+    const now = Date.now();
+    if (now - lastTrailTime > spawnDelay) {
+        createTrail();
+        lastTrailTime = now;
+    }
+    requestAnimationFrame(trailLoop);
 }
-requestAnimationFrame(loop);
+trailLoop();
+
+const imageElement = document.getElementById("fading-image");
+
+const images = [
+    "Photo/Luke1.JPG",
+    "Photo/Luke2.jpg",
+    "Photo/Luke3.jpg",
+    "Photo/Luke4.JPG"
+];
+
+let currentImageIndex = 0;
+
+imageElement.addEventListener('click', () => {
+    imageElement.classList.add("hidden");
+
+    const nextIndex = (currentImageIndex + 1) % images.length;
+    const newSrc = images[nextIndex];
+
+    const img = new Image();
+    img.src = newSrc;
+    img.onload = () => {
+        currentImageIndex = nextIndex;
+        imageElement.src = newSrc;
+        imageElement.classList.remove("hidden");
+    }
+});
+
+const page_switch = document.getElementById('page-switch');
+const page_container = document.getElementById('page_container');
+const page_switch2 = document.getElementById('page-switch2');
+
+page_switch2.style.display = 'none';
+
+page_switch.addEventListener('click', function () {
+    page_container.style.display = 'none';
+    page_switch.style.display = 'none';
+    page_switch2.classList.remove('hidden');
+
+});
