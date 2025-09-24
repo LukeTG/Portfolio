@@ -85,16 +85,30 @@ imageElement.addEventListener('click', () => {
     }
 });
 
-const page_switch = document.getElementById('page-switch');
-const page_container = document.getElementById('page_container');
-const page_switch2 = document.getElementById('page-switch2');
+document.addEventListener("DOMContentLoaded", () => {
+    const heroPage = document.getElementById("hero_page");
+    const workPage = document.getElementById("work_page");
 
-page_switch2.style.display = 'none';
+    const heroSwitch = document.getElementById("page-switch");
+    const workSwitch = document.getElementById("page-switch2");
 
-page_switch.addEventListener('click', function () {
-    page_container.style.display = 'none';
-    page_switch.style.display = 'none';
-    page_switch2.classList.remove('hidden');
+    heroSwitch.addEventListener("click", () => {
+        // Show work page, hide hero page
+        workPage.style.display = "block";
+        heroPage.style.display = "none";
 
+        // Swap headers visibility
+        heroSwitch.style.display = "none";
+        workSwitch.style.display = "inline"; // or "block" if you prefer
+    });
+
+    workSwitch.addEventListener("click", () => {
+        // Show hero page, hide work page
+        heroPage.style.display = "block";
+        workPage.style.display = "none";
+
+        // Swap headers visibility
+        workSwitch.style.display = "none";
+        heroSwitch.style.display = "inline"; // or "block"
+    });
 });
-
