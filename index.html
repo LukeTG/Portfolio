@@ -1,15 +1,18 @@
 <!DOCTYPE html>
+</body>
+</html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>My Webpage</title>
-    <link rel="stylesheet" href="style.css" />
-    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="Photo/Style.css" />
+    <script src="Script.js" defer></script>
 </head>
 <body>
     <h3 class="page_switch" id="page-switch">Hero Page</h3>
-    <h4 class="page_switch2" id="page-switch2">Work</h4>
+    <h4 class="page_switch2" id="page-switch2" style="display:none;">Work</h4>
     <div class="hero_page" id="hero_page">
         <div class="page-container" id="page_container">
             <div class="left-container">
@@ -40,13 +43,31 @@
 
             <div class="right-container">
                 <h3 class="individual">Individual</h3>
-                <img id="fading-image" class="fade" src="Luke4.JPG" alt="Picture of Luke smiling" />
+                <img id="fading-image" class="fade" src="Photo/Luke4.JPG" alt="Picture of Luke smiling" />
             </div>
         </div>
-        <div class="trail-container"></div>
     </div>
-</body>
-</html>
+    <div class="trail-container"></div>
+    <div class="work_page" id="work_page" style="display:none">
+        <div class="page-container2" id="page-container2">
+            <div class="left-container2">
+                <h1 class="hula-dance">Hula Dance Hoop</h1>
+                <p class="hula-dance-para">The Hula Dance Hoop is a is a devising of my own that I conceived by combining Friday Night Funkin' and the Spark Lab Makey Makey Hula Hoop Control Pad. At first it was four cardboard buttons that I made with springs, but then I got the idea to just make the conductivity of your foot complete the circuit, and finally I combined that idea with the hula hoop and made this device.'</p>
+                <video class="hula-dance-vid" controls>
+                    <source src="C:\Users\HTH_Spark\Downloads\Luke's Portfolio\Photo\Hula_Vid.mp4" type="video/mp4">/>
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="center-container2">
 
-
-
+            </div>
+            <div class="right-container2">
+                <h1 class="alarm-head">Wire Breaking Alarm System</h1>
+                <p class="alarm-para">I got this idea from a problem board in the Makey Makey unit. I immiedetly knew what to do and made a alarm system with a breakable wire and a circuit on the ground. There was not much issue making this besides finding out how to put it up on the wall. I also used scratch to code the program that played the alarm sound.</p>
+                <video class="alarm-vid" controls>
+                    <source src="C:\Users\HTH_Spark\Downloads\Luke's Portfolio\Photo\Alarm.mp4" type="video/mp4">/>
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+    </div>
