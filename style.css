@@ -13,31 +13,31 @@ body {
     flex-direction: column;
     height: 100vh;
 }
-.page-switch2 {
+
+.page_switch2 {
     position: fixed;
     top: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 100vw;
-    max-width: 1200px;
-    padding: 20px 0;
     text-align: center;
     font-size: 60px;
     font-weight: bold;
     color: black;
     -webkit-text-stroke: 2px white;
     text-shadow: 5px 5px 10px orange;
-    cursor: pointer;
+    cursor: none;
     z-index: 10000;
     transition: text-shadow 0.2s ease-in-out;
 }
-/* Fixed page-switch header */
+
+.page_switch2:hover {
+    text-shadow: 10px 10px 10px yellow;
+}
+
 #page-switch {
     position: fixed;
     left: 50%;
     transform: translateX(-50%);
-    width: 100vw;
-    max-width: 1200px;
     padding: 20px 0;
     text-align: center;
     font-size: 60px;
@@ -51,12 +51,11 @@ body {
     cursor: none;
 }
 
-    #page-switch:hover {
+#page-switch:hover {
         text-shadow: 10px 10px 10px yellow;
     }
 
-/* Main container below header */
-.page-container {
+.page-container, .page-container2 {
     display: flex;
     width: 100vw;
     height: calc(100vh - 80px);
@@ -64,8 +63,7 @@ body {
     box-sizing: border-box;
 }
 
-/* Left and right containers */
-.left-container, .right-container {
+.left-container, .right-container, .left-container2, .right-container2 {
     width: 30%;
     display: flex;
     flex-direction: column;
@@ -76,8 +74,7 @@ body {
     box-sizing: border-box;
 }
 
-/* Center container */
-.center-container {
+.center-container, .center-container2 {
     width: 40%;
     display: flex;
     flex-direction: column;
@@ -88,8 +85,7 @@ body {
     box-sizing: border-box;
 }
 
-/* Text headers styling */
-.introduction, .interest-title, .individual {
+.introduction, .interest-title, .individual, .hula-dance, .alarm-head {
     padding-top: 5%;
     font-size: 40px;
     font-weight: bold;
@@ -104,12 +100,11 @@ body {
     margin-right: auto;
 }
 
-    .introduction:hover, .interest-title:hover, .individual:hover {
+.introduction:hover, .interest-title:hover, .individual:hover, .hula-dance:hover, .alarm-head:hover {
         text-shadow: 10px 10px 10px yellow;
     }
 
-/* About paragraph */
-.about {
+.about, .hula-dance-para, .alarm-para {
     border-style: solid none solid none;
     border-color: orange white orange white;
     border-width: 1px;
@@ -126,13 +121,24 @@ body {
     margin-right: auto;
 }
 
-    .about:hover {
+.about:hover, .hula-dance-para:hover, .alarm-para:hover {
         border-color: yellow white yellow white;
         border-width: 3px;
         text-shadow: 10px 10px 10px yellow;
     }
 
-/* Interest list */
+.hula-dance-vid, .alarm-vid {
+    width: 50%;
+    border: solid;
+    border-color: orange;
+    border-width: 1px 2px 1px 1px;
+}
+
+.hula-dance-vid:hover, .alarm-vid:hover {
+        border-color: yellow;
+        border-width: 3px 4px 3px 3px;
+    }
+
 .interest {
     border-style: solid none solid none;
     border-color: orange white orange white;
@@ -153,13 +159,7 @@ body {
     margin-right: auto;
 }
 
-    .interest li {
-        position: relative;
-        padding-left: 20px;
-        margin-bottom: 10px;
-    }
-
-        .interest li::before {
+.interest li::before {
             content: '\2022';
             position: absolute;
             left: 0;
@@ -170,17 +170,16 @@ body {
             transition: text-shadow 0.2s ease-in-out;
         }
 
-    .interest:hover {
+.interest:hover {
         border-color: yellow white yellow white;
         border-width: 3px;
         text-shadow: 10px 10px 10px yellow;
     }
 
-        .interest:hover li::before {
+.interest:hover li::before {
             text-shadow: 10px 10px 10px yellow;
         }
 
-/* Right container image with fade */
 .right-container img.fade {
     width: 80%;
     height: auto;
@@ -192,16 +191,15 @@ body {
     display: block;
 }
 
-    .right-container img.fade.hidden {
+.right-container img.fade.hidden {
         opacity: 0;
     }
 
-    .right-container img.fade:hover {
+.right-container img.fade:hover {
         border-color: yellow;
         border-width: 3px;
     }
 
-/* Cursor trail container, fixed top left full screen */
 .trail-container {
     position: fixed;
     top: 0;
@@ -212,7 +210,6 @@ body {
     z-index: 9998;
 }
 
-/* Custom cursor ring */
 .cursor-ring {
     position: fixed;
     width: 30px;
@@ -224,7 +221,6 @@ body {
     z-index: 9999;
 }
 
-/* Trail dots */
 .trail {
     position: absolute;
     width: 12px;
