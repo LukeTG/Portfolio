@@ -6,33 +6,38 @@ html, body {
 
 body {
     background-color: black;
-    cursor: none; /* Hide native cursor */
+    cursor: none;
     overflow: hidden;
     font-family: "Lucida Console", "Courier New", monospace;
     display: flex;
     flex-direction: column;
     height: 100vh;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
 }
 
-.page_switch2 {
+.page_switch2, .page-switch3, .page-switch4 {
     position: fixed;
-    top: 0;
     left: 50%;
     transform: translateX(-50%);
+    padding: 20px 0;
     text-align: center;
     font-size: 60px;
     font-weight: bold;
     color: black;
     -webkit-text-stroke: 2px white;
     text-shadow: 5px 5px 10px orange;
-    cursor: none;
+    cursor: pointer;
     z-index: 10000;
     transition: text-shadow 0.2s ease-in-out;
+    cursor: none;
 }
 
-.page_switch2:hover {
-    text-shadow: 10px 10px 10px yellow;
-}
+    .page_switch2:hover, .page-switch3:hover, .page-switch4:hover {
+        text-shadow: 10px 10px 10px yellow;
+    }
 
 #page-switch {
     position: fixed;
@@ -51,11 +56,11 @@ body {
     cursor: none;
 }
 
-#page-switch:hover {
+    #page-switch:hover {
         text-shadow: 10px 10px 10px yellow;
     }
 
-.page-container, .page-container2 {
+.page-container, .page-container2, .page-container3, .page-container4 {
     display: flex;
     width: 100vw;
     height: calc(100vh - 80px);
@@ -63,7 +68,7 @@ body {
     box-sizing: border-box;
 }
 
-.left-container, .right-container, .left-container2, .right-container2 {
+.left-container, .right-container, .left-container2, .right-container2, .left-container3, .right-container3, .left-container4, .right-container4 {
     width: 30%;
     display: flex;
     flex-direction: column;
@@ -72,9 +77,12 @@ body {
     padding: 20px;
     overflow-y: auto;
     box-sizing: border-box;
+    border-width: 1px;
+    border-color: orange;
+    border-style: none solid none solid;
 }
 
-.center-container, .center-container2 {
+.center-container, .center-container2, .center-container3, .center-container4 {
     width: 40%;
     display: flex;
     flex-direction: column;
@@ -85,7 +93,7 @@ body {
     box-sizing: border-box;
 }
 
-.introduction, .interest-title, .individual, .hula-dance, .alarm-head {
+.introduction, .interest-title, .individual, .hula-dance, .alarm-head, .collage, .high, .middle, .composing, .marching, .base {
     padding-top: 5%;
     font-size: 40px;
     font-weight: bold;
@@ -100,11 +108,11 @@ body {
     margin-right: auto;
 }
 
-.introduction:hover, .interest-title:hover, .individual:hover, .hula-dance:hover, .alarm-head:hover {
+    .introduction:hover, .interest-title:hover, .individual:hover, .hula-dance:hover, .alarm-head:hover, .collage:hover, .high:hover, .middle:hover, .composing:hover, .marching:hover, .base:hover {
         text-shadow: 10px 10px 10px yellow;
     }
 
-.about, .hula-dance-para, .alarm-para {
+.about, .hula-dance-para, .alarm-para, .middle-p, .high-p, .collage-p, .base-para {
     border-style: solid none solid none;
     border-color: orange white orange white;
     border-width: 1px;
@@ -121,20 +129,20 @@ body {
     margin-right: auto;
 }
 
-.about:hover, .hula-dance-para:hover, .alarm-para:hover {
+    .about:hover, .hula-dance-para:hover, .alarm-para:hover, .middle-p:hover, .high-p:hover, .collage-p:hover, .base-para:hover {
         border-color: yellow white yellow white;
         border-width: 3px;
         text-shadow: 10px 10px 10px yellow;
     }
 
-.hula-dance-vid, .alarm-vid {
+.hula-dance-vid, .alarm-vid, .base-vid {
     width: 50%;
     border: solid;
     border-color: orange;
     border-width: 1px 2px 1px 1px;
 }
 
-.hula-dance-vid:hover, .alarm-vid:hover {
+    .hula-dance-vid:hover, .alarm-vid:hover, .base-vid:hover {
         border-color: yellow;
         border-width: 3px 4px 3px 3px;
     }
@@ -147,7 +155,7 @@ body {
     color: white;
     font-size: 20px;
     list-style-type: none;
-    padding-left: 40px;
+    padding-left: 0;
     padding-top: 20px;
     padding-bottom: 20px;
     text-shadow: 5px 5px 10px orange;
@@ -157,31 +165,38 @@ body {
     overflow-wrap: break-word;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 10px;
 }
 
-.interest li::before {
-            content: '\2022';
+    .interest li {
+        position: relative;
+        padding-left: 30px; /* Space for custom bullet */
+        margin-bottom: 10px;
+    }
+
+        .interest li::before {
+            content: '\2022'; /* Custom bullet (•) */
             position: absolute;
             left: 0;
-            top: 0;
+            top: 4px; /* Adjust vertically for better alignment */
             color: white;
             font-size: 30px;
             text-shadow: 5px 5px 10px orange;
             transition: text-shadow 0.2s ease-in-out;
         }
 
-.interest:hover {
+    .interest:hover {
         border-color: yellow white yellow white;
         border-width: 3px;
         text-shadow: 10px 10px 10px yellow;
     }
 
-.interest:hover li::before {
+        .interest:hover li::before {
             text-shadow: 10px 10px 10px yellow;
         }
 
 .right-container img.fade {
-    width: 80%;
+    width: 70%;
     height: auto;
     object-fit: contain;
     opacity: 1;
@@ -191,11 +206,11 @@ body {
     display: block;
 }
 
-.right-container img.fade.hidden {
+    .right-container img.fade.hidden {
         opacity: 0;
     }
 
-.right-container img.fade:hover {
+    .right-container img.fade:hover {
         border-color: yellow;
         border-width: 3px;
     }
@@ -219,6 +234,7 @@ body {
     pointer-events: none;
     transform: translate(-50%, -50%);
     z-index: 9999;
+    transition: transform 0.2s ease, border-color 0.2s ease;
 }
 
 .trail {
@@ -228,6 +244,7 @@ body {
     background-color: rgba(255, 255, 255, 0.8);
     border-radius: 50%;
     animation: fadeOut 0.35s forwards;
+    transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
 @keyframes fadeOut {
@@ -240,4 +257,41 @@ body {
         opacity: 0;
         transform: scale(0);
     }
+}
+
+* {
+    scrollbar-width: none;
+}
+
+    *::-webkit-scrollbar {
+        display: none;
+    }
+
+.ring {
+    position: absolute;
+    border: 2px solid orange;
+    border-radius: 50%;
+    transform: scale(0.2);
+    opacity: 1;
+    pointer-events: none;
+    animation: expandFade 1s ease-out forwards; /* faster animation */
+    z-index: 9999;
+}
+
+@keyframes expandFade {
+    to {
+        transform: scale(2); /* scale up from the ring */
+        opacity: 0;
+        border-color: yellow;
+    }
+}
+
+.cursor-ring.active {
+    transform: translate(-50%, -50%) scale(0.7);
+    border-color: orange;
+}
+
+.trail.active {
+    background-color: orange;
+    transform: scale(0.7);
 }
