@@ -78,10 +78,10 @@ trailLoop();
 const imageElement = document.getElementById("fading-image");
 
 const images = [
-    "Photo/Luke1.JPG",
-    "Photo/Luke2.jpg",
-    "Photo/Luke3.jpg",
-    "Photo/Luke4.JPG"
+    "Luke1.JPG",
+    "Luke2.jpg",
+    "Luke3.jpg",
+    "Luke4.JPG"
 ];
 
 let currentImageIndex = 0;
@@ -169,3 +169,4 @@ document.addEventListener('click', function (e) {
         ring.remove();
     });
 });
+
